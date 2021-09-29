@@ -12,6 +12,12 @@ export default ({item}) => {
         return hour + 'h' + min + 'min';
     }
 
+    const clampOverview = (overview) => {
+        return overview.length > 350 ?
+        overview.substring(0, 350) + '...' :
+        overview;
+    }
+
     let genres = [];
     for (let i in item.genres) {
         genres.push(item.genres[i].name);
@@ -36,7 +42,7 @@ export default ({item}) => {
                         <div className="featured--seasons">{duration(item.runtime)}</div>
                         }
                     </div>
-                    <div className="featured--description">{item.overview}</div>
+                    <div className="featured--description">{clampOverview(item.overview)}</div>
                     <div className="featured--buttons">
                         <a href={`/watch/${item.id}`} className="featured--watchbutton">► Assistir</a>
                         <a href={`/list/add/${item.id}`} className="featured--mylistbutton">+ Minha Lista</a>
