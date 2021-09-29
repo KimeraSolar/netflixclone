@@ -2,8 +2,15 @@ import React from "react";
 
 import "./style.css"
 
-export default ({item}) => {
-    let firstDate = new Date(item.first_air_date ? item.first_air_date : item.release_date);
+export default ({item}) => {    
+    const formatDate = () => {
+        let date = '';
+        if (item.first_air_date || item.release_date) {
+            date = new Date(item.first_air_date ? item.first_air_date : item.release_date);
+            date = date.getFullYear();
+        }
+        return date;
+    }
 
     const duration = (minutes) => {
         const hour = Math.floor(minutes / 60);
@@ -34,7 +41,7 @@ export default ({item}) => {
                     <div className="featured--name">{item.name ? item.name : item.title}</div>
                     <div className="featured--info">
                         <div className="featured--rating">{item.vote_average} ★</div>
-                        <div className="featured--year">{firstDate.getFullYear()}</div>
+                        <div className="featured--year">{formatDate()}</div>
                         {item.number_of_seasons &&
                         <div className="featured--seasons">{item.number_of_seasons} temporada{item.number_of_seasons !== 1 ? 's' : ''}</div>
                         }
