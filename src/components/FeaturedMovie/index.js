@@ -2,11 +2,7 @@ import React from "react";
 
 import "./style.css"
 
-<<<<<<< HEAD
-export default function FeaturedMovie ({item}) {
-    let firstDate = new Date(item.first_air_date ? item.first_air_date : item.release_date);
-=======
-export default ({item}) => {    
+export default function FeaturedMovie ({item}) {    
     const formatDate = () => {
         let date = '';
         if (item.first_air_date || item.release_date) {
@@ -15,7 +11,6 @@ export default ({item}) => {
         }
         return date;
     }
->>>>>>> 2127afea3f4137e0f5fc25157017c878f9bea822
 
     const duration = (minutes) => {
         const hour = Math.floor(minutes / 60);
