@@ -4,7 +4,7 @@ import './style.css';
 
 import { NavigateBefore, NavigateNext } from "@material-ui/icons";
 
-export default ({title, items, handleFeaturedData}) => {
+export default function MovieRow({title, items, handleFeaturedData}) {
     const [scrollX, setScrollX] = useState(0);
 
     const handleLeftArrow = () => {

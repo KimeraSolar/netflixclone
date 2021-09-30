@@ -2,7 +2,7 @@ import React from "react";
 
 import "./style.css"
 
-export default ({item}) => {
+export default function FeaturedMovie ({item}) {
     let firstDate = new Date(item.first_air_date ? item.first_air_date : item.release_date);
 
     const duration = (minutes) => {
